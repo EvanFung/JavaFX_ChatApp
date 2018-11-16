@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.login.LoginController" fx:id="loginPane">
+    <children>
+        <AnchorPane prefHeight="553.0" prefWidth="460.0" style="-fx-background-color: #0C39FF;">
+            <children>
+                <Label layoutX="95.0" layoutY="235.0" prefHeight="54.0" prefWidth="291.0" text="HKBU Instant Messenger" textFill="WHITE">
+                    <font>
+                        <Font name="Diwan Kufi Regular" size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="165.0" layoutY="298.0" text="Simple. Secure" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="147.0" layoutY="344.0" text="Reliable messaging" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="180.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../resources/images/icons8-sent-64.png" />
+                    </image>
+                    <effect>
+                        <ColorAdjust brightness="1.0" />
+                    </effect>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <JFXTextField fx:id="usernameField" layoutX="605.0" layoutY="167.0" prefHeight="27.0" prefWidth="281.0" promptText="USERNAME" styleClass="jfx-text-field" stylesheets="@../../resources/styles.css" />
+        <JFXPasswordField fx:id="passwordField" layoutX="605.0" layoutY="256.0" prefHeight="27.0" prefWidth="281.0" promptText="PASSWORD" styleClass="jfx-text-field" stylesheets="@../../resources/styles.css" />
+        <JFXButton onAction="#handleLogin" fx:id="bt_login" layoutX="605.0" layoutY="317.0"  prefHeight="35.0" prefWidth="281.0" style="-fx-background-color: #4D83F7;" text="Login" textFill="#f8f7f7" />
+        <JFXButton layoutX="605.0" layoutY="379.0" prefHeight="35.0" prefWidth="281.0" style="-fx-background-color: #4D83F7;" text="Sign In with Facebook" textFill="WHITE" />
+        <ImageView fitHeight="23.0" fitWidth="34.0" layoutX="633.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../resources/images/icons8-facebook-50.png" />
+            </image>
+            <effect>
+                <ColorAdjust brightness="1.0" />
+            </effect>
+        </ImageView>
+        <JFXButton onAction="#showSignupDialog" layoutX="921.0" layoutY="26.0" prefHeight="35.0" prefWidth="79.0" style="-fx-border-width: 1px; -fx-border-style: solid;" text="Sign Up" textFill="#392f2f" />
+        <Label layoutX="476.0" layoutY="519.0" text="Design by Evan Feng" />
+        <Hyperlink alignment="CENTER" contentDisplay="CENTER" layoutX="605.0" layoutY="455.0" prefHeight="25.0" prefWidth="281.0" text="Forgot Password" />
+        <Separator layoutX="612.0" layoutY="439.0" prefHeight="3.0" prefWidth="272.0" />
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="client.view.main.MainPageController" fx:id="mainBorderPane">
+
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New group" onAction="#showDialog"/>
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Enter group" onAction="#showEnterDialog" />
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Leave group" onAction="#showLeaveDialog"  />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                        <!--add dialog about -->
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <ListView fx:id="msgSession">
+        </ListView>
+    </center>
+    <right>
+    </right>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="72.0" text="Message:"/>
+                <TextField fx:id="messageTextField" prefHeight="25.0" prefWidth="324.0"/>
+                <Button fx:id="sendMessageBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="send" onAction="#sendMsg"/>
+            </children>
+            <children>
+                <Button fx:id="uploadBtn" text="Open..." onAction="#handleUpload"/>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
