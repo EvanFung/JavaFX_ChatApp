@@ -4,6 +4,7 @@ import client.Client;
 import client.ClientHolder;
 import common.FileMessage;
 import common.SendHelper;
+import util.DateUtils;
 
 import java.io.File;
 
@@ -29,6 +30,9 @@ public class ChatRoomAction {
             message.setSize(file.length());
             message.setFrom(ClientHolder.getClient().getFrom());
             message.setTo(to);
+            System.out.println(DateUtils.getFormatDate());
+            message.setTimer(DateUtils.getFormatDate());
+            message.setUpload(true);
             //Send the file message
             SendHelper.send(ClientHolder.getClient().getSocket(),message);
             SendHelper.upload(ClientHolder.getClient().getSocket(),file);

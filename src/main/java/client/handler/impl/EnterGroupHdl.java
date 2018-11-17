@@ -31,6 +31,10 @@ public class EnterGroupHdl implements Handler {
         return null;
     }
 
+    public static void setCurrentRoom(String currentRoom) {
+        EnterGroupHdl.currentRoom = currentRoom;
+    }
+
     public static String  getCurrentRoom() {
         return currentRoom;
     }

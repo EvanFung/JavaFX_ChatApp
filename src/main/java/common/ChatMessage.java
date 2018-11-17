@@ -5,6 +5,8 @@ public class ChatMessage extends BaseMessage {
     private String roomName;
     private String content;
     private String timer;
+    private String chatType;
+    private FileMessage fileMessage;
     public int getType() {
         return type;
     }
@@ -18,6 +20,21 @@ public class ChatMessage extends BaseMessage {
         return this;
     }
 
+    public String getChatType() {
+        return chatType;
+    }
+
+    public FileMessage getFileMessage() {
+        return fileMessage;
+    }
+
+    public void setFileMessage(FileMessage fileMessage) {
+        this.fileMessage = fileMessage;
+    }
+
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
+    }
 
     public String getRoomName() {
         return roomName;

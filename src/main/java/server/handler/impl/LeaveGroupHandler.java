@@ -1,10 +1,7 @@
 package server.handler.impl;
 
 import com.alibaba.fastjson.JSON;
-import common.I18N;
-import common.Key;
-import common.LeaveGroupMessage;
-import common.ReturnMessage;
+import common.*;
 import server.SocketHolder;
 import server.group.service.GroupService;
 import server.handler.SocketHandler;
@@ -20,8 +17,9 @@ public class LeaveGroupHandler implements SocketHandler {
             rm.setSuccess(true);
             rm.setKey(Key.LEAVEGROUP);
             LeaveGroupMessage lgm = JSON.parseObject(data.toString(), LeaveGroupMessage.class);
-            rm.setContent(I18N.INFO_LEAVE_GROUP_SUCCESS + "[ " + lgm + " ]");
+            rm.setContent(I18N.INFO_LEAVE_GROUP_SUCCESS + "[ " + lgm.getGroupName() + " ]");
             groupService.leaveRoom(lgm.getGroupName(),SocketHolder.get(lgm.getUserName()));
+            SendHelper.send(client,rm);
         }
         return null;
     }

@@ -10,9 +10,14 @@ public interface ConstantValue {
      */
     int DEBUG_LEVEL = 0;
     /**
-     * 客户端接收文件的存储路径
+     * 客户端端接收文件的存储路径
      */
-    String CLIENT_RECEIVE_DIR = "./file";
+    String CLIENT_RECEIVE_DIR = "./clientFile";
+    /**
+     * 服务器接受文件的存储路径
+     */
+    String SERVER_RECEIVE_DIR = "./serverFile";
+
     /**
      * KEEPALIVE PERIOD'second
      */
@@ -46,8 +51,9 @@ public interface ConstantValue {
      * SOCKET超时时间'second
      */
     int TIME_OUT = 120;
-    /**
-     * 群发标识TO:ALL,用户注册不能使用此用户名
-     */
-    String TO_ALL = "TO_ALL";
+
+
+    String CHAT_TYPE_TEXT = "TEXT";
+
+    String CHAT_TYPE_FILE = "FILE";
 }

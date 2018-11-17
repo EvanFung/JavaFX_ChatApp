@@ -8,9 +8,7 @@ import client.handler.impl.TipHdl;
 import client.view.dialog.entergroup.EnterGroupController;
 import client.view.dialog.newgroup.NewGroupController;
 import com.sun.tools.javac.comp.Enter;
-import common.ChatMessage;
-import common.LeaveGroupMessage;
-import common.SendHelper;
+import common.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
@@ -35,6 +34,7 @@ import util.StringUtil;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -57,21 +57,65 @@ public class MainPageController implements ControlledStage, Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         chatRecord = DefaultCallback.getChatRecord();
         msgSession.setItems(chatRecord);
-
         listContextMenu = new ContextMenu();
         MenuItem downloadMenuItem = new MenuItem("Download");
         downloadMenuItem.setOnAction((event) -> {
             ChatMessage message = (ChatMessage) msgSession.getSelectionModel().getSelectedItem();
-            System.out.println(message);
+            if(message.getChatType().equals(ConstantValue.CHAT_TYPE_FILE)) {
+               FileMessage fm =  message.getFileMessage();
+               fm.setUpload(false);
+               SendHelper.send(ClientHolder.getClient().getSocket(),fm);
+            }
+
         });
 
+        listContextMenu.getItems().addAll(downloadMenuItem);
 
-        msgSession.setCellFactory(new Callback<ListView, ListCell>() {
+
+        msgSession.setCellFactory(new Callback<ListView<ChatMessage>, ListCell<ChatMessage>>() {
             @Override
-            public ListCell call(ListView param) {
-                return new ChatCell();
+            public ListCell<ChatMessage> call(ListView<ChatMessage> param) {
+                ListCell<ChatMessage> cell = new ListCell<ChatMessage>() {
+
+                    @Override
+                    protected void updateItem(ChatMessage item, boolean empty) {
+                        super.updateItem(item, empty);
+                        Platform.runLater(() -> {
+                            if (item != null) {
+                                VBox box = new VBox();
+                                HBox hBox = new HBox();
+                                TextFlow txtContent = new TextFlow(new Text(item.getContent()));
+                                Label labUser = new Label(item.getFrom() + " [" + item.getTimer() + "]");
+                                labUser.setStyle("-fx-background-color: #7bc5cd; -fx-text-fill: white");
+                                hBox.getChildren().addAll(labUser);
+                                if (item.getFrom().equals(thisUser)) {
+                                    txtContent.setTextAlignment(TextAlignment.RIGHT);
+                                    hBox.setAlignment(Pos.CENTER_RIGHT);
+                                    box.setAlignment(Pos.CENTER_RIGHT);
+                                }
+                                box.getChildren().addAll(hBox, txtContent);
+                                setGraphic(box);
+
+                            } else {
+                                setGraphic(null);
+                            }
+                        });
+                    }
+                };
+
+                cell.emptyProperty().addListener(
+                        (obs, wasEmpty, isNowEmpty) -> {
+                            if(isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(listContextMenu);
+                            }
+                        });
+
+                return cell;
             }
         });
+
     }
 
     public MainPageController() {
@@ -143,7 +187,6 @@ public class MainPageController implements ControlledStage, Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             EnterGroupController enterGroupController = fxmlLoader.getController();
             enterGroupController.handleEnterGroup();
-
         }
     }
 
@@ -157,6 +200,7 @@ public class MainPageController implements ControlledStage, Initializable {
             LeaveGroupMessage lgm = new LeaveGroupMessage();
             lgm.setGroupName(EnterGroupHdl.getCurrentRoom());
             lgm.setUserName(ClientHolder.getClient().getFrom());
+            EnterGroupHdl.setCurrentRoom(null);
             SendHelper.send(ClientHolder.getClient().getSocket(),lgm);
         } else {
         }
@@ -172,6 +216,7 @@ public class MainPageController implements ControlledStage, Initializable {
             cm.setContent(msg);
             cm.setFrom(ClientHolder.getClient().getFrom());
             cm.setTimer(DateUtils.getFormatDate());
+            cm.setChatType(ConstantValue.CHAT_TYPE_TEXT);
             SendHelper.send(ClientHolder.getClient().getSocket(), cm);
 
         } else {
@@ -181,34 +226,6 @@ public class MainPageController implements ControlledStage, Initializable {
             alert.setContentText("NOT ALLOW TO SEND MESSAGE");
 
             alert.showAndWait();
-        }
-    }
-
-
-    public static class ChatCell extends ListCell<ChatMessage> {
-        @Override
-        protected void updateItem(ChatMessage item, boolean empty) {
-            super.updateItem(item, empty);
-            Platform.runLater(() -> {
-                if (item != null) {
-                    VBox box = new VBox();
-                    HBox hBox = new HBox();
-                    TextFlow txtContent = new TextFlow(new Text(item.getContent()));
-                    Label labUser = new Label(item.getFrom() + " [" + item.getTimer() + "]");
-                    labUser.setStyle("-fx-background-color: #7bc5cd; -fx-text-fill: white");
-                    hBox.getChildren().addAll(labUser);
-                    if (item.getFrom().equals(thisUser)) {
-                        txtContent.setTextAlignment(TextAlignment.RIGHT);
-                        hBox.setAlignment(Pos.CENTER_RIGHT);
-                        box.setAlignment(Pos.CENTER_RIGHT);
-                    }
-                    box.getChildren().addAll(hBox, txtContent);
-                    setGraphic(box);
-
-                } else {
-                    setGraphic(null);
-                }
-            });
         }
     }
 
@@ -231,7 +248,7 @@ public class MainPageController implements ControlledStage, Initializable {
         } else {
 
             Platform.runLater(() -> {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Warning");
                 alert.setHeaderText("ROOM DOESN'T EXIST");
                 alert.setContentText("NOT ALLOW TO UPLOAD FILE");

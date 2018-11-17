@@ -5,7 +5,16 @@ public class FileMessage extends BaseMessage {
     private String name;
     private long size;
     private String ext;
-    
+    private String timer;
+    boolean isUpload = true;
+
+    public String getTimer() {
+        return timer;
+    }
+
+    public void setTimer(String timer) {
+        this.timer = timer;
+    }
 
     public int getType() {
         return type;
@@ -18,6 +27,14 @@ public class FileMessage extends BaseMessage {
     public FileMessage setName(String name) {
         this.name = name;
         return this;
+    }
+
+    public boolean isUpload() {
+        return isUpload;
+    }
+
+    public void setUpload(boolean upload) {
+        isUpload = upload;
     }
 
     public long getSize() {

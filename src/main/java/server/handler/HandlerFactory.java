@@ -23,6 +23,8 @@ public class HandlerFactory {
                 return new ChatHandler();
             case MessageType.FILE:
                 return new FileHandler();
+            case MessageType.LEAVEGROUP:
+                return new LeaveGroupHandler();
         }
         return null; // NullPointException
     }
