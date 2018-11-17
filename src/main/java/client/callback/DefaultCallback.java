@@ -33,7 +33,7 @@ public class DefaultCallback implements Callback {
                     handleReturnMessage(data);
                     break;
                 case MessageType.FILE:
-                    handleFileMessage(server,data);
+                    handleFileMessage(server, data);
                     break;
             }
         }
@@ -79,6 +79,7 @@ public class DefaultCallback implements Callback {
 
     /**
      * Receiving message
+     *
      * @param server
      * @param data
      */
@@ -89,11 +90,14 @@ public class DefaultCallback implements Callback {
             try {
                 if (server != null) {
                     InputStream is = server.getInputStream();
-                    File directory = new File(ConstantValue.CLIENT_RECEIVE_DIR);
+                    String dirPath = ConstantValue.CLIENT_RECEIVE_DIR +
+                            File.separator +
+                            message.getTo();
+                    File directory = new File(dirPath);
                     if (!directory.exists()) {
-                        directory.mkdir();
+                        directory.mkdirs();
                     }
-                    os = new FileOutputStream(new File(PathUtil.combination(ConstantValue.CLIENT_RECEIVE_DIR, new Date().getTime() + message.getName())));
+                    os = new FileOutputStream(new File(PathUtil.combination(dirPath, new Date().getTime() + "-" + message.getName())));
                     int total = 0;
                     while (!server.isClosed()) {
                         if (is.available() > 0) {

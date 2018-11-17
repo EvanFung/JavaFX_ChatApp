@@ -27,9 +27,10 @@ public class FileHandler implements SocketHandler {
             } else {
                 FileInputStream fin = null;
                 OutputStream outputStream = null;
+                SendHelper.send(client,fm);
                 byte[] buffer = new byte[ConstantValue.BUFF_SIZE];
                 try {
-                    String dirPath = ConstantValue.CLIENT_RECEIVE_DIR +
+                    String dirPath = ConstantValue.SERVER_RECEIVE_DIR +
                             File.separator +
                             fm.getTo();
                     File file = new File(PathUtil.combination(dirPath,fm.getTimer()+"-" +fm.getName()));
