@@ -1,5 +1,8 @@
 package common;
 
+/**
+ *  SERVER PUSH MESSAGE KEY
+ */
 public interface Key {
     /**
      * 登陆
@@ -29,4 +32,8 @@ public interface Key {
      * ENTER GROUP
      */
     String ENTERGROUP = "ENTERGROUP";
+    /**
+     * LEAVE GROUP
+     */
+    String LEAVEGROUP = "LEAVEGROUP";
 }

@@ -1,6 +1,7 @@
 package client.callback;
 
 import client.handler.HF;
+import client.handler.impl.TipHdl;
 import com.alibaba.fastjson.JSON;
 import common.*;
 import javafx.application.Platform;

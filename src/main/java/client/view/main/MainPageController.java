@@ -4,10 +4,12 @@ import client.ClientHolder;
 import client.callback.ChatRoomAction;
 import client.callback.DefaultCallback;
 import client.handler.impl.EnterGroupHdl;
+import client.handler.impl.TipHdl;
 import client.view.dialog.entergroup.EnterGroupController;
 import client.view.dialog.newgroup.NewGroupController;
 import com.sun.tools.javac.comp.Enter;
 import common.ChatMessage;
+import common.LeaveGroupMessage;
 import common.SendHelper;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -47,12 +49,22 @@ public class MainPageController implements ControlledStage, Initializable {
     @FXML
     private BorderPane mainBorderPane;
     @FXML
-    private ListView msgSession;
+    public ListView msgSession;
+    @FXML
+    private ContextMenu listContextMenu;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         chatRecord = DefaultCallback.getChatRecord();
         msgSession.setItems(chatRecord);
+
+        listContextMenu = new ContextMenu();
+        MenuItem downloadMenuItem = new MenuItem("Download");
+        downloadMenuItem.setOnAction((event) -> {
+            ChatMessage message = (ChatMessage) msgSession.getSelectionModel().getSelectedItem();
+            System.out.println(message);
+        });
+
 
         msgSession.setCellFactory(new Callback<ListView, ListCell>() {
             @Override
@@ -140,12 +152,13 @@ public class MainPageController implements ControlledStage, Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Dialog");
         alert.setHeaderText("Are you sure to leave this group?");
-
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            // ... user chose OK
+        if (result.get() == ButtonType.OK && StringUtil.isNotEmpty(EnterGroupHdl.getCurrentRoom())) {
+            LeaveGroupMessage lgm = new LeaveGroupMessage();
+            lgm.setGroupName(EnterGroupHdl.getCurrentRoom());
+            lgm.setUserName(ClientHolder.getClient().getFrom());
+            SendHelper.send(ClientHolder.getClient().getSocket(),lgm);
         } else {
-            // ... user chose CANCEL or closed the dialog
         }
     }
 
@@ -162,17 +175,12 @@ public class MainPageController implements ControlledStage, Initializable {
             SendHelper.send(ClientHolder.getClient().getSocket(), cm);
 
         } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Warning");
             alert.setHeaderText("ROOM DOESN'T EXIST");
             alert.setContentText("NOT ALLOW TO SEND MESSAGE");
 
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                // ... user chose OK
-            } else {
-                // ... user chose CANCEL or closed the dialog
-            }
+            alert.showAndWait();
         }
     }
 
@@ -186,7 +194,7 @@ public class MainPageController implements ControlledStage, Initializable {
                     VBox box = new VBox();
                     HBox hBox = new HBox();
                     TextFlow txtContent = new TextFlow(new Text(item.getContent()));
-                    Label labUser = new Label(item.getOwner() + "[" + item.getTimer() + "]");
+                    Label labUser = new Label(item.getFrom() + " [" + item.getTimer() + "]");
                     labUser.setStyle("-fx-background-color: #7bc5cd; -fx-text-fill: white");
                     hBox.getChildren().addAll(labUser);
                     if (item.getFrom().equals(thisUser)) {

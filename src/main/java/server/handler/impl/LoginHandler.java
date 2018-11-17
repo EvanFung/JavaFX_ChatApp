@@ -6,6 +6,7 @@ import common.dto.ClientListUserDTO;
 import common.dto.GroupClientListDTO;
 import server.SocketHolder;
 import server.SocketWrapper;
+import server.group.service.GroupService;
 import server.handler.SocketHandler;
 import server.user.service.UserService;
 import util.StringUtil;
@@ -17,6 +18,7 @@ import static common.Key.LISTUSER;
 
 public class LoginHandler implements SocketHandler {
     private UserService userService = new UserService();
+    private GroupService groupService = new GroupService();
     @Override
     public Object handle(Socket client, Object data) {
         ReturnMessage result = new ReturnMessage();
@@ -45,7 +47,7 @@ public class LoginHandler implements SocketHandler {
                 //once the user login successfully, we sent a list of group and online's user
                 //set clients list and group list
                 GroupClientListDTO groupClientListDTO = new GroupClientListDTO();
-                groupClientListDTO.setListGroup(SocketHolder.keySetOfRoom());
+                groupClientListDTO.setListGroup(groupService.keySetOfRoom());
                 groupClientListDTO.setListUser(SocketHolder.keySet());
 
                 ClientListUserDTO dto = new ClientListUserDTO();

@@ -23,15 +23,15 @@ public class GroupHandler implements SocketHandler {
         result.setSuccess(false).setFrom(ConstantValue.SERVER_NAME);
         if (data != null) {
             GroupMessage message = JSON.parseObject(data.toString(), GroupMessage.class);
-            if (StringUtil.isNotEmpty(message.getGroupName())) {
-                if (groupService.createGroup(message.getGroupName(),message.getCreator()) != null) {
+            if (StringUtil.isNotEmpty(message.getGroupName()) && StringUtil.isNotEmpty(message.getCreator()) && StringUtil.isNotEmpty(message.getPassword())) {
+                if (groupService.createGroup(message.getGroupName(),message.getPassword(),message.getCreator())) {
                     //create room
                     ArrayList<SocketWrapper> room = new ArrayList<>();
-                    boolean flag = SocketHolder.putRoom(message.getGroupName(),room);
+                    boolean flag = groupService.putRoom(message.getGroupName(),room);
                     if(flag) {
                         result.setSuccess(true).setContent(I18N.INFO_GROUP_OK);
                     } else {
-                        result.setMessage(I18N.INFO_GROUP_EXIST);
+                        result.setMessage(I18N.INFO_GROUP_FAILED);
                     }
                 } else {
                     result.setMessage(I18N.INFO_GROUP_EXIST);
@@ -51,7 +51,7 @@ public class GroupHandler implements SocketHandler {
             SendHelper.send(client,result);
 
             GroupClientListDTO groupClientListDTO = new GroupClientListDTO();
-            groupClientListDTO.setListGroup(SocketHolder.keySetOfRoom());
+            groupClientListDTO.setListGroup(groupService.keySetOfRoom());
             groupClientListDTO.setListUser(SocketHolder.keySet());
 
             //put the group and user list into the result message

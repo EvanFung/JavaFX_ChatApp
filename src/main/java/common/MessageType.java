@@ -1,40 +1,47 @@
 package common;
 
+/**
+ * SERVER RECEIVE MESSAGE TYPE
+ */
 public interface MessageType {
     /**
-     * 注册
+     * REGISTER
      */
     int REGISTER = 0;
     /**
-     * 登陆
+     * LOGIN
      */
     int LOGIN = 1;
     /**
-     * 退出
+     * LOGOUT SYSTEM
      */
     int LOGOUT = 2;
     /**
-     * 聊天
+     * CHAT
      */
     int CHAT = 3;
     /**
-     * 文件传输
+     * FILE TRANSMISSION
      */
     int FILE = 4;
     /**
-     * 心跳
+     * SOCKET HEARTBEAT
      */
     int ALIVE = 5;
     /**
-     * 服务器回馈
+     * SERVER RESPONSE
      */
     int RETURN = 6;
     /**
-     * 群組 CREATE GROUP
+     * CREATE GROUP
      */
     int GROUP = 7;
     /**
      * ENTER GROUP
      */
     int ENTERGROUP = 8;
+    /**
+     * LEAVE GROUP
+     */
+    int LEAVEGROUP = 9;
 }

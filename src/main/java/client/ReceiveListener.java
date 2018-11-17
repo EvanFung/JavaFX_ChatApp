@@ -1,7 +1,10 @@
 package client;
 
 import client.callback.Callback;
+import com.alibaba.fastjson.JSON;
+import common.BaseMessage;
 import common.ConstantValue;
+import common.MessageType;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -39,6 +42,10 @@ public class ReceiveListener implements Runnable {
                         System.out.println("RECEIVE [" + sb.toString() + "] AT " + new Date());
 
                         callback.doWork(socket, sb.toString());
+                        BaseMessage message = JSON.parseObject(sb.toString(),BaseMessage.class);
+                        if(message.getType() == MessageType.FILE) {
+                            Thread.sleep(ConstantValue.MESSAGE_PERIOD);
+                        }
                     } else {
                         Thread.sleep(ConstantValue.MESSAGE_PERIOD);
                     }

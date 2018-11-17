@@ -5,6 +5,7 @@ import common.ChatMessage;
 import common.SendHelper;
 import server.SocketHolder;
 import server.SocketWrapper;
+import server.group.service.GroupService;
 import server.handler.SocketHandler;
 import util.StringUtil;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ChatHandler implements SocketHandler {
+    GroupService groupService = new GroupService();
     @Override
     public Object handle(Socket client, Object data) {
         if (data != null) {
@@ -23,7 +25,7 @@ public class ChatHandler implements SocketHandler {
                 String owner = message.getFrom();
                 message.setOwner(owner);
                 ArrayList<SocketWrapper> trash = new ArrayList<>();
-                ArrayList<SocketWrapper> room = SocketHolder.rooms.get(message.getRoomName());
+                ArrayList<SocketWrapper> room = groupService.getRooms().get(message.getRoomName());
                 synchronized (room) {
                     for (int i = 0; i < room.size(); i++) {
                         SocketWrapper wrapper = room.get(i);

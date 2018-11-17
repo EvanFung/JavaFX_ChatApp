@@ -7,6 +7,7 @@ import util.StringUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -17,36 +18,35 @@ public class GroupService {
     private static Map<String, Group> db = new HashMap<>();
     private static ConcurrentMap<String, ArrayList> rooms = new ConcurrentHashMap<>();
 
-    public Group createGroup(String name,String password) {
-        if(StringUtil.isEmpty(name) && StringUtil.isNotEmpty(password))  {
-            return null;
+    public boolean createGroup(String name,String password,String creator) {
+        if(StringUtil.isEmpty(name) && StringUtil.isEmpty(password))  {
+            return false;//empty input
         }
 
         if(db.containsKey(name)) {
-            return null;//exist
+            return false;//exist
         }
 
         Group group = new Group();
         group.setGroupName(name);
         group.setPassword(password);
+        group.setCreator(creator);
         db.put(name, group);
-        return group;
+        return true;
     }
 
+    public static ConcurrentMap<String, ArrayList> getRooms() {
+        return rooms;
+    }
 
-
-    public boolean putRoom(String key,String password, ArrayList<SocketWrapper> room) {
-        if(db.containsKey(key)) {
+    public boolean putRoom(String key, ArrayList<SocketWrapper> room) {
+        if(!db.containsKey(key)) {
             return false;
         }
 
-        if(!db.get(key).getPassword().equals(password)) {
-            return false;
-        }
         synchronized (rooms) {
             if (!rooms.containsKey(key)) {
                 rooms.put(key, room);
-                System.out.println("room was created");
                 return true;
             } else {
                 return false;
@@ -76,6 +76,10 @@ public class GroupService {
         return false;
     }
 
+    public static Set<String> keySetOfRoom() {
+        return rooms.keySet();
+    }
+
 
     public static void leaveRoom(String key, SocketWrapper wrapper) {
         if (rooms.containsKey(key)) {
@@ -86,7 +90,8 @@ public class GroupService {
         }
     }
 
-
-
+    public static ArrayList<SocketWrapper> getRoom(String key) {
+        return rooms.get(key);
+    }
 
 }

@@ -5,6 +5,7 @@ public class FileMessage extends BaseMessage {
     private String name;
     private long size;
     private String ext;
+    
 
     public int getType() {
         return type;

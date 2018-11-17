@@ -23,14 +23,14 @@ public class SocketDispatcher implements Runnable {
     @Override
     public void run() {
 
-        if(socket != null) {
+        if (socket != null) {
             while (!socket.isClosed()) {
                 try {
                     InputStream is = socket.getInputStream();
                     String line = null;
                     StringBuffer sb = null;
 
-                    if(is.available() > 0) {
+                    if (is.available() > 0) {
 
                         BufferedReader bufr = new BufferedReader(new InputStreamReader(is));
                         sb = new StringBuffer();
@@ -45,22 +45,27 @@ public class SocketDispatcher implements Runnable {
                                 HandlerFactory.getHandler(MessageType.ALIVE).handle(socket, sb.toString());
                                 break;
                             case MessageType.REGISTER:
-                                HandlerFactory.getHandler(MessageType.REGISTER).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.REGISTER).handle(socket, sb.toString());
                                 break;
                             case MessageType.LOGIN:
-                                HandlerFactory.getHandler(MessageType.LOGIN).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.LOGIN).handle(socket, sb.toString());
                                 break;
                             case MessageType.GROUP:
-                                HandlerFactory.getHandler(MessageType.GROUP).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.GROUP).handle(socket, sb.toString());
                                 break;
                             case MessageType.ENTERGROUP:
-                                HandlerFactory.getHandler(MessageType.ENTERGROUP).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.ENTERGROUP).handle(socket, sb.toString());
                                 break;
                             case MessageType.CHAT:
-                                HandlerFactory.getHandler(MessageType.CHAT).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.CHAT).handle(socket, sb.toString());
                                 break;
                             case MessageType.FILE:
-                                HandlerFactory.getHandler(MessageType.FILE).handle(socket,sb.toString());
+                                HandlerFactory.getHandler(MessageType.FILE).handle(socket, sb.toString());
+                                System.out.println("Pause to receive a file");
+                                Thread.sleep(ConstantValue.MESSAGE_PERIOD);
+                                break;
+                            case MessageType.LEAVEGROUP:
+                                HandlerFactory.getHandler(MessageType.LEAVEGROUP).handle(socket, sb.toString());
                                 break;
                         }
 
@@ -68,7 +73,7 @@ public class SocketDispatcher implements Runnable {
                         Thread.sleep(ConstantValue.MESSAGE_PERIOD);
                     }
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 

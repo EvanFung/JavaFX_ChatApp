@@ -5,6 +5,7 @@ public class GroupMessage extends BaseMessage {
 
     private String groupName;
     private String creator;
+    private String password;
 
     public String getCreator() {
         return creator;
@@ -25,5 +26,13 @@ public class GroupMessage extends BaseMessage {
     @Override
     public int getType() {
         return type;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

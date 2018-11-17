@@ -29,9 +29,9 @@ public class ChatRoomAction {
             message.setSize(file.length());
             message.setFrom(ClientHolder.getClient().getFrom());
             message.setTo(to);
-            //SEND it
+            //Send the file message
             SendHelper.send(ClientHolder.getClient().getSocket(),message);
-//            SendHelper.upload(ClientHolder.getClient().getSocket(),file);
+            SendHelper.upload(ClientHolder.getClient().getSocket(),file);
         }
     }
 }

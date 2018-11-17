@@ -90,6 +90,10 @@ public interface I18N {
      */
     String INFO_GROUP_OK = "CREATE GROUP SUCCESS";
     /**
+     * 建立群组失败
+     */
+    String INFO_GROUP_FAILED = "CREATE GROUP FAILED";
+    /**
      * 群组已存在
      */
     String INFO_GROUP_EXIST = "THE GROUP ALREADY EXIST";
@@ -105,4 +109,12 @@ public interface I18N {
      * 进入群组失败
      */
     String INFO_GROUP_ENTER_FAILED = "THE GROUP DOESN'T EXIST, ENTER GROUP FAIL";
+    /**
+     * 离开群组成功
+     */
+    String INFO_LEAVE_GROUP_SUCCESS = "LEAVE GROUP SUCCESS";
+    /**
+     * 离开群组失败
+     */
+    String INFO_LEAVE_GROUP_FAILED = "LEAVE GROUP FAILED";
 }
