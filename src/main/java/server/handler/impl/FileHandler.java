@@ -25,32 +25,7 @@ public class FileHandler implements SocketHandler {
             if(fm.isUpload()) {
                 upload(client,fm,os);
             } else {
-                FileInputStream fin = null;
-                OutputStream outputStream = null;
-                SendHelper.send(client,fm);
-                byte[] buffer = new byte[ConstantValue.BUFF_SIZE];
-                try {
-                    String dirPath = ConstantValue.SERVER_RECEIVE_DIR +
-                            File.separator +
-                            fm.getTo();
-                    File file = new File(PathUtil.combination(dirPath,fm.getTimer()+"-" +fm.getName()));
-                    if(!file.exists() && file.isDirectory()) {
-                        throw new IOException("Invalid file");
-                    }
-                    fin = new FileInputStream(file);
-                    outputStream = client.getOutputStream();
-                    int len;
-                    long size = file.length();
-                    while ( size > 0) {
-                        len = fin.read(buffer,0, (int) Math.min(size,buffer.length) );
-                        outputStream.write(buffer,0,len);
-                        size -=len;
-                    }
-                    outputStream.flush();
-                    //after send the file, inform the client
-                }catch (IOException e) {
-                    System.out.println("send file to client failed"+ e.getMessage());
-                }
+                download(client,fm);
             }
         }
         return null;
@@ -121,6 +96,48 @@ public class FileHandler implements SocketHandler {
             if (os != null) {
                 try {
                     os.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * user download file to his own folder
+     * @param client
+     * @param fm
+     */
+    public void download(Socket client, FileMessage fm) {
+        FileInputStream fin = null;
+        OutputStream outputStream = null;
+        SendHelper.send(client,fm);
+        byte[] buffer = new byte[ConstantValue.BUFF_SIZE];
+        try {
+            String dirPath = ConstantValue.SERVER_RECEIVE_DIR +
+                    File.separator +
+                    fm.getTo();
+            File file = new File(PathUtil.combination(dirPath,fm.getTimer()+"-" +fm.getName()));
+            if(!file.exists() && file.isDirectory()) {
+                throw new IOException("Invalid file");
+            }
+            fin = new FileInputStream(file);
+            outputStream = client.getOutputStream();
+            int len;
+            long size = file.length();
+            while ( size > 0) {
+                len = fin.read(buffer,0, (int) Math.min(size,buffer.length) );
+                outputStream.write(buffer,0,len);
+                size -=len;
+            }
+            outputStream.flush();
+            //after send the file, inform the client
+        }catch (IOException e) {
+            System.out.println("send file to client failed"+ e.getMessage());
+        } finally {
+            if (fin != null) {
+                try {
+                    fin.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
