@@ -65,6 +65,16 @@ public class MainPageController implements ControlledStage, Initializable {
                FileMessage fm =  message.getFileMessage();
                fm.setUpload(false);
                SendHelper.send(ClientHolder.getClient().getSocket(),fm);
+
+
+                Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("FILE SEND SUCCESSFULLY");
+                    alert.setHeaderText("FILE TRANSMISSION SUCCESS");
+                    alert.setContentText("OK");
+                    alert.showAndWait();
+                });
+
             }
 
         });
@@ -108,6 +118,7 @@ public class MainPageController implements ControlledStage, Initializable {
                             if(isNowEmpty) {
                                 cell.setContextMenu(null);
                             } else {
+                                System.out.println(obs.getValue());
                                 cell.setContextMenu(listContextMenu);
                             }
                         });
