@@ -17,6 +17,8 @@ public class HF {
                 return new EnterGroupHdl();
             case Key.TIP:
                 return new TipHdl();
+            case Key.GROUP:
+                return new GroupHdl();
         }
         return null;
     }

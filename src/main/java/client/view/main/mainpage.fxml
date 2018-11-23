@@ -3,16 +3,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-
-<?import javafx.scene.image.ImageView?>
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="client.view.main.MainPageController" fx:id="mainBorderPane">
 
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Group">
                     <items>
                         <MenuItem mnemonicParsing="false" text="New group" onAction="#showDialog"/>
                     </items>
@@ -37,6 +34,17 @@
         </ListView>
     </center>
     <right>
+        <VBox>
+            <children>
+                <Label fx:id="greetingLabel">Welcome back!</Label>
+                <Label>Online:</Label>
+                <ListView fx:id="listUserView" prefHeight="192.5" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            </children>
+            <children>
+                <Label>Group:</Label>
+                <ListView fx:id="listGroupView" prefHeight="192.5" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            </children>
+        </VBox>
     </right>
     <bottom>
         <HBox BorderPane.alignment="CENTER">

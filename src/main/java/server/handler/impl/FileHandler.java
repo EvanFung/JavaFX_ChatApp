@@ -104,7 +104,7 @@ public class FileHandler implements SocketHandler {
     }
 
     /**
-     * user download file to his own folder
+     * user download file
      * @param client
      * @param fm
      */

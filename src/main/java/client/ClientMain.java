@@ -28,11 +28,11 @@ public class ClientMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //新建一个StageController控制器
+        //create a stage controller
         stageController = new StageController();
-        //加载两个舞台，每个界面一个舞台
+        //load two stages
         stageController.loadStage(loginViewID, loginViewRes, StageStyle.DECORATED);
-        //显示MainView舞台
+        //display login view
         stageController.setStage(loginViewID);
 
     }

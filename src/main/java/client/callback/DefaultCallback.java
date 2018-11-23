@@ -67,11 +67,15 @@ public class DefaultCallback implements Callback {
                     break;
                 case Key.LISTUSER:
                     HF.getHandler(Key.LISTUSER).handle(data);
+                    break;
                 case Key.ENTERGROUP:
                     HF.getHandler(Key.ENTERGROUP).handle(data);
                     break;
                 case Key.TIP:
                     HF.getHandler(Key.TIP).handle(data);
+                    break;
+                case Key.GROUP:
+                    HF.getHandler(Key.GROUP).handle(data);
                     break;
             }
         }
@@ -97,7 +101,7 @@ public class DefaultCallback implements Callback {
                     if (!directory.exists()) {
                         directory.mkdirs();
                     }
-                    os = new FileOutputStream(new File(PathUtil.combination(dirPath, new Date().getTime() + "-" + message.getName())));
+                    os = new FileOutputStream(new File(PathUtil.combination(dirPath, message.getTimer() + "-" + message.getName())));
                     int total = 0;
                     while (!server.isClosed()) {
                         if (is.available() > 0) {

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserService {
-    // TODO db
+    //TODO database implementation later
     private static Map<String, User> db = new HashMap<String,User>();
 
     public User register(String username, String password) {

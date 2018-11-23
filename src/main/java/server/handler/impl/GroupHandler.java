@@ -46,9 +46,15 @@ public class GroupHandler implements SocketHandler {
 
             //ALTER GROUP WAS CREATED
             result.setKey(Key.GROUP);
-            //ALTER CLIENTS WAS UPDATED??
+            //ALTER ***ALL*** CLIENTS WAS UPDATED??
 
-            SendHelper.send(client,result);
+//            SendHelper.send(client,result);
+
+            for(String s: SocketHolder.keySet()) {
+                Socket socket = SocketHolder.get(s).getSocket();
+                SendHelper.send(socket,result);
+            }
+
 
             GroupClientListDTO groupClientListDTO = new GroupClientListDTO();
             groupClientListDTO.setListGroup(groupService.keySetOfRoom());
@@ -56,8 +62,13 @@ public class GroupHandler implements SocketHandler {
 
             //put the group and user list into the result message
             result.setContent(groupClientListDTO).setKey(LISTUSER);
-            //send
-            SendHelper.send(client,result);
+            //ALERT ALL CLIENTS THAT THE GROULIST AND CLIENT LIST WAS CREATE
+//            SendHelper.send(client,result);
+
+            for(String s: SocketHolder.keySet()) {
+                Socket socket = SocketHolder.get(s).getSocket();
+                SendHelper.send(socket,result);
+            }
         }
         return null;
     }

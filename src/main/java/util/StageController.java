@@ -9,7 +9,7 @@ import javafx.stage.StageStyle;
 import java.util.HashMap;
 
 public class StageController {
-    //建立一个专门存储Stage的Map，全部用于存放Stage对象
+    //create a map for storing stage
     private HashMap<String, Stage> stages = new HashMap<String, Stage>();
 
 
@@ -30,6 +30,7 @@ public class StageController {
 
     /**
      * It will save the primary stage object.
+     *
      * @param primaryStageName set the name of primary stage
      * @param primaryStage     primary stage object
      */
@@ -40,32 +41,28 @@ public class StageController {
 
     /**
      * load window by address, fxml resource file is needed.
-     * @param name      注册好的fxml窗口的文件
-     * @param resources fxml资源地址
-     * @param styles    可变参数，init使用的初始化样式资源设置
+     *
+     * @param name      name of the registered fxml windows
+     * @param resources resource address
+     * @param styles    styling parameters
      * @return 是否加载成功
      */
     public boolean loadStage(String name, String resources, StageStyle... styles) {
         try {
-            //加载FXML资源文件
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resources));
             Pane tempPane = (Pane) loader.load();
 
-            //通过Loader获取FXML对应的ViewCtr，并将本StageController注入到ViewCtr中
             ControlledStage controlledStage = (ControlledStage) loader.getController();
             controlledStage.setStageController(this);
 
-            //构造对应的Stage
             Scene tempScene = new Scene(tempPane);
             Stage tempStage = new Stage();
             tempStage.setScene(tempScene);
 
-            //配置initStyle
             for (StageStyle style : styles) {
                 tempStage.initStyle(style);
             }
 
-            //将设置好的Stage放到HashMap中
             this.addStage(name, tempStage);
 
             return true;
@@ -76,10 +73,10 @@ public class StageController {
     }
 
     /**
-     * 显示Stage但不隐藏任何Stage
+     * display stage, but not hiding any stage
      *
-     * @param name 需要显示的窗口的名称
-     * @return 是否显示成功
+     * @param name the name of the display window
+     * @return result of display window
      */
     public boolean setStage(String name) {
         this.getStage(name).show();
@@ -88,10 +85,10 @@ public class StageController {
 
 
     /**
-     * 显示Stage并隐藏对应的窗口
+     * display stage and hiding corresponding windows
      *
-     * @param show  需要显示的窗口
-     * @param close 需要删除的窗口
+     * @param show  name of the window that need to display
+     * @param close name of the window that need to close
      * @return
      */
     public boolean setStage(String show, String close) {
@@ -102,17 +99,17 @@ public class StageController {
 
 
     /**
-     * 在Map中删除Stage加载对象
+     * remove the loading stage object in the map
      *
-     * @param name 需要删除的fxml窗口文件名
-     * @return 是否删除成功
+     * @param name file name of the window of the fxml that need to be removed
+     * @return result of removing the window
      */
     public boolean unloadStage(String name) {
         if (stages.remove(name) == null) {
-            System.out.println("窗口不存在，请检查名称");
+            System.out.println("window not exist,please check");
             return false;
         } else {
-            System.out.println("窗口移除成功");
+            System.out.println("window remove successful");
             return true;
         }
     }

@@ -30,11 +30,11 @@ public class ChatRoomAction {
             message.setSize(file.length());
             message.setFrom(ClientHolder.getClient().getFrom());
             message.setTo(to);
-            System.out.println(DateUtils.getFormatDate());
             message.setTimer(DateUtils.getFormatDate());
             message.setUpload(true);
-            //Send the file message
+            //Send the file message(header)
             SendHelper.send(ClientHolder.getClient().getSocket(),message);
+            //upload file
             SendHelper.upload(ClientHolder.getClient().getSocket(),file);
         }
     }

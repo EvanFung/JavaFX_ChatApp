@@ -2,19 +2,15 @@ package common;
 
 public interface ConstantValue {
     /**
-     * 缓冲区大小
+     * buffer size
      */
     int BUFF_SIZE = 1024;
     /**
-     * 调试模式
-     */
-    int DEBUG_LEVEL = 0;
-    /**
-     * 客户端端接收文件的存储路径
+     * client side receiving file path
      */
     String CLIENT_RECEIVE_DIR = "./clientFile";
     /**
-     * 服务器接受文件的存储路径
+     * server side receiving file path
      */
     String SERVER_RECEIVE_DIR = "./serverFile";
 
@@ -23,36 +19,38 @@ public interface ConstantValue {
      */
     int KEEP_ALIVE_PERIOD = 20;
     /**
-     * 最大socket线程处理数
+     * the maximum number of thread, maximum number of clients
      */
     int MAX_POOL_SIZE = 30;
     /**
      * <pre>
-     * 检测是否有新的数据时间间隔'ms
+     * the time interval which to check whether there is a new data(ms)
      * (server.SocketDispatch,client.ReceiveListener,SendHelper)
-     * 使用同一个Thread.sleep时间保证数据能正确接收到，同时降低CPU的使用率
-     * !!!!! -非常重要- !!!!!
+     * if using the same thread sleep time, we can guarantee the data will be received correctly and lower the cpu rate
+     * !!!!! - important - !!!!!
      * </pre>
      */
     int MESSAGE_PERIOD = 500;
     /**
-     * 服务器IP地址
+     * server IP address
      */
     String SERVER_IP = "127.0.0.1";
     /**
-     * 服务器名称，用户注册不能使用此用户名
+     * server Ip address , users cannot register it
      */
     String SERVER_NAME = "EVANFENG";
     /**
-     * 服务器端口
+     * server port number
      */
     int SERVER_PORT = 8888;
     /**
-     * SOCKET超时时间'second
+     * timeout of the socket (second)
      */
     int TIME_OUT = 120;
 
-
+    /**
+     * chat message type
+     */
     String CHAT_TYPE_TEXT = "TEXT";
 
     String CHAT_TYPE_FILE = "FILE";

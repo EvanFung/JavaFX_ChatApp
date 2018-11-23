@@ -16,8 +16,18 @@ public class GroupService {
      * <group name, Group object>
      */
     private static Map<String, Group> db = new HashMap<>();
+    /**
+     * <group name, list of groups>
+     */
     private static ConcurrentMap<String, ArrayList> rooms = new ConcurrentHashMap<>();
 
+    /**
+     * create group
+     * @param name name of the group
+     * @param password password of the group
+     * @param creator creator of the group
+     * @return
+     */
     public boolean createGroup(String name,String password,String creator) {
         if(StringUtil.isEmpty(name) && StringUtil.isEmpty(password))  {
             return false;//empty input
@@ -35,10 +45,20 @@ public class GroupService {
         return true;
     }
 
+    /**
+     *
+     * @return return list of groups
+     */
     public static ConcurrentMap<String, ArrayList> getRooms() {
         return rooms;
     }
 
+    /**
+     * add a room to the rooms list
+     * @param key name of the group
+     * @param room
+     * @return
+     */
     public boolean putRoom(String key, ArrayList<SocketWrapper> room) {
         if(!db.containsKey(key)) {
             return false;

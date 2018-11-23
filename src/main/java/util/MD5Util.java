@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Util {
 
-    /** 全局数组 **/
+    /** global array  **/
     private final static String[] STR_DIGITS = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D",
             "E", "F" };
 
@@ -13,7 +13,7 @@ public class MD5Util {
     }
 
     /**
-     * 返回形式为数字跟字符串
+     * The format of the returning information are numeric and String
      */
     private static String byteToArrayString(byte bByte) {
         int iRet = bByte;
@@ -26,7 +26,7 @@ public class MD5Util {
     }
 
     /**
-     * 转换字节数组为16进制字串
+     * Converts a byte array to a hexadecimal string
      */
     private static String byteToString(byte[] bByte) {
         StringBuffer sBuffer = new StringBuffer();
@@ -37,14 +37,14 @@ public class MD5Util {
     }
 
     /**
-     * MD5加密
+     * MD5 encryption
      */
     public static String getMD5Code(String str) {
         return getMD5Code(str, false);
     }
 
     /**
-     * MD5加密
+     * MD5 encryption
      */
     public static String getMD5Code(String str, boolean lowerCase) {
         String result = null;

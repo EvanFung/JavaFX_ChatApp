@@ -39,21 +39,19 @@ public class LoginHandler implements SocketHandler {
             // AFTER LOGIN
             result.setKey(Key.LOGIN);
             if (result.isSuccess()) { // HOLD SOCKET
-                System.out.println("[result.getTo]= "+result.getTo());
                 SocketHolder.put(result.getTo(), new SocketWrapper(client, new Date()));
             }
             SendHelper.send(client,result);
             if(result.isSuccess()) {
-                //once the user login successfully, we sent a list of group and online's user
-                //set clients list and group list
+                //update the list of users and groups
                 GroupClientListDTO groupClientListDTO = new GroupClientListDTO();
                 groupClientListDTO.setListGroup(groupService.keySetOfRoom());
                 groupClientListDTO.setListUser(SocketHolder.keySet());
-
-                ClientListUserDTO dto = new ClientListUserDTO();
-                dto.setListUser(SocketHolder.keySet());
                 result.setContent(groupClientListDTO).setKey(LISTUSER);
-                SendHelper.send(client,result);
+                for(String s: SocketHolder.keySet()) {
+                    Socket socket = SocketHolder.get(s).getSocket();
+                    SendHelper.send(socket,result);
+                }
             }
         }
         return null;

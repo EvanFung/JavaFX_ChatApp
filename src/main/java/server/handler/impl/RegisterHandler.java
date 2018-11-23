@@ -2,15 +2,22 @@ package server.handler.impl;
 
 import com.alibaba.fastjson.JSON;
 import common.*;
+import common.dto.GroupClientListDTO;
+import server.SocketHolder;
+import server.SocketWrapper;
+import server.group.service.GroupService;
 import server.handler.SocketHandler;
 import server.user.service.UserService;
 import util.StringUtil;
 
 import java.net.Socket;
+import java.util.ArrayList;
+
+import static common.Key.LISTUSER;
 
 public class RegisterHandler  implements SocketHandler {
     private UserService userService = new UserService();
-
+    private GroupService groupService = new GroupService();
 
     @Override
     public Object handle(Socket client, Object data) {
@@ -33,6 +40,7 @@ public class RegisterHandler  implements SocketHandler {
             }
             // AFTER REGISTER
             result.setKey(Key.REGISTER);
+            //tell registered user success message
             SendHelper.send(client, result);
         }
         return null;

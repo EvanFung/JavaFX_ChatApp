@@ -2,47 +2,34 @@ package client.handler.impl;
 
 import client.handler.Handler;
 import com.alibaba.fastjson.JSON;
-import common.EnterGroupMessage;
 import common.ReturnMessage;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 
-public class EnterGroupHdl implements Handler {
-    public static String currentRoom;
-
+public class GroupHdl implements Handler {
     @Override
     public Object handle(Object obj) {
         if(obj != null) {
-            try {
+            try{
                 ReturnMessage rm = JSON.parseObject(obj.toString(), ReturnMessage.class);
-                if(!rm.isSuccess()) {
+                if(rm.isSuccess()) {
+                    //group create success
                     Platform.runLater(()-> {
-                        showSignupWindow("WARNING",rm.getMessage());
+                        showSignupWindow("INFORMATION",rm.getContent().toString());
                     });
                 } else {
-                    EnterGroupMessage egm = JSON.parseObject(rm.getContent().toString(),EnterGroupMessage.class);
-                    currentRoom = egm.getGroupName();
+                    //group create fail
                     Platform.runLater(()-> {
                         showSignupWindow("INFORMATION",rm.getMessage());
                     });
-
                 }
-            } catch (Exception e) {
+
+            } catch (Exception e){
                 e.printStackTrace();
-                System.out.println("Handler enter group failed"+e.getMessage());
             }
         }
         return null;
     }
-
-    public static void setCurrentRoom(String currentRoom) {
-        EnterGroupHdl.currentRoom = currentRoom;
-    }
-
-    public static String  getCurrentRoom() {
-        return currentRoom;
-    }
-
 
     public void showSignupWindow(String title, String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

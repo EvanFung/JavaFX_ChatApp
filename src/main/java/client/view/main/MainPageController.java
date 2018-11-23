@@ -52,17 +52,30 @@ public class MainPageController implements ControlledStage, Initializable {
     public ListView msgSession;
     @FXML
     private ContextMenu listContextMenu;
+    @FXML
+    private ListView listUserView;
+    @FXML
+    private ListView listGroupView;
+    @FXML
+    private Label greetingLabel;
+
+    public static ObservableList<String> listUser = FXCollections.observableArrayList();
+    public static ObservableList<String> listGroup = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         chatRecord = DefaultCallback.getChatRecord();
         msgSession.setItems(chatRecord);
+        listUserView.setItems(listUser);
+        listGroupView.setItems(listGroup);
+
         listContextMenu = new ContextMenu();
         MenuItem downloadMenuItem = new MenuItem("Download");
         downloadMenuItem.setOnAction((event) -> {
             ChatMessage message = (ChatMessage) msgSession.getSelectionModel().getSelectedItem();
             if(message.getChatType().equals(ConstantValue.CHAT_TYPE_FILE)) {
                FileMessage fm =  message.getFileMessage();
+               //if user press download, then set upload to false
                fm.setUpload(false);
                SendHelper.send(ClientHolder.getClient().getSocket(),fm);
 
@@ -118,7 +131,6 @@ public class MainPageController implements ControlledStage, Initializable {
                             if(isNowEmpty) {
                                 cell.setContextMenu(null);
                             } else {
-                                System.out.println(obs.getValue());
                                 cell.setContextMenu(listContextMenu);
                             }
                         });
@@ -175,7 +187,6 @@ public class MainPageController implements ControlledStage, Initializable {
 
     @FXML
     public void showEnterDialog() {
-        System.out.println("enter group");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
 
@@ -242,7 +253,6 @@ public class MainPageController implements ControlledStage, Initializable {
 
     @FXML
     public void handleUpload() {
-        System.out.println("Open upload!!");
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Save Application File");
         chooser.getExtensionFilters().addAll(
@@ -267,4 +277,8 @@ public class MainPageController implements ControlledStage, Initializable {
             });
         }
     }
+
+
+
+
 }
