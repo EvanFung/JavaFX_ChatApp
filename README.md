@@ -1,4 +1,4 @@
-#WESHARE
+# WESHARE
 
 An information sharing desktop application which includes a server program and client program.
 

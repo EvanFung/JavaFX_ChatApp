@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="chore: minor changes">
-      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="chore: add some documents">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,8 +111,8 @@
           <entry key="dummy" value="11" />
           <entry key="fxml" value="791" />
           <entry key="java" value="33429" />
-          <entry key="md" value="773" />
-          <entry key="txt" value="327" />
+          <entry key="md" value="774" />
+          <entry key="txt" value="351" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
@@ -121,8 +120,8 @@
         <counts>
           <entry key="CSS" value="357" />
           <entry key="JAVA" value="33429" />
-          <entry key="Markdown" value="773" />
-          <entry key="PLAIN_TEXT" value="338" />
+          <entry key="Markdown" value="774" />
+          <entry key="PLAIN_TEXT" value="362" />
           <entry key="XML" value="802" />
         </counts>
       </usages-collector>
@@ -159,8 +158,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="177">
-                <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+              <first_editor>
+                <caret column="2" selection-start-column="2" selection-end-column="2" />
               </first_editor>
               <second_editor />
             </state>
@@ -382,7 +381,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547647795414" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547647983049" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -512,7 +511,7 @@
       <workItem from="1544111338376" duration="1103000" />
       <workItem from="1544339961824" duration="2395000" />
       <workItem from="1545919499142" duration="43000" />
-      <workItem from="1547645467387" duration="2264000" />
+      <workItem from="1547645467387" duration="2470000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1542390924223</created>
@@ -570,11 +569,25 @@
       <option name="project" value="LOCAL" />
       <updated>1547645538817</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="chore: add some documents">
+      <created>1547647819689</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1547647819689</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: add some documents">
+      <created>1547647838747</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547647838747</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199763000" />
+    <option name="totallyTimeSpent" value="199969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
@@ -639,7 +652,8 @@
     <MESSAGE value="encapsulate the download method" />
     <MESSAGE value="changes the file message timer date time format" />
     <MESSAGE value="chore: minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: minor changes" />
+    <MESSAGE value="chore: add some documents" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add some documents" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -990,8 +1004,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="177">
-            <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          <first_editor>
+            <caret column="2" selection-start-column="2" selection-end-column="2" />
           </first_editor>
           <second_editor />
         </state>
