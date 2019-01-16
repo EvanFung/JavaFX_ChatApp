@@ -1,0 +1,10 @@
+.list-cell .jfx-rippler {
+    -fx-background-color: transparent;
+    -fx-rippler-fill: #ffad5e;
+}
+.list-cell {
+    -fx-background-color: transparent;
+}
+.list-cell:selected {
+    -fx-text-fill: black;
+}

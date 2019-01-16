@@ -7,9 +7,13 @@ import client.handler.impl.EnterGroupHdl;
 import client.handler.impl.TipHdl;
 import client.view.dialog.entergroup.EnterGroupController;
 import client.view.dialog.newgroup.NewGroupController;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXRippler;
 import com.sun.tools.javac.comp.Enter;
 import common.*;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,7 +53,7 @@ public class MainPageController implements ControlledStage, Initializable {
     @FXML
     private BorderPane mainBorderPane;
     @FXML
-    public ListView msgSession;
+    public JFXListView msgSession;
     @FXML
     private ContextMenu listContextMenu;
     @FXML
@@ -57,7 +61,9 @@ public class MainPageController implements ControlledStage, Initializable {
     @FXML
     private ListView listGroupView;
     @FXML
-    private Label greetingLabel;
+    private VBox infoBox;
+    public static Label label2;
+
 
     public static ObservableList<String> listUser = FXCollections.observableArrayList();
     public static ObservableList<String> listGroup = FXCollections.observableArrayList();
@@ -68,16 +74,24 @@ public class MainPageController implements ControlledStage, Initializable {
         msgSession.setItems(chatRecord);
         listUserView.setItems(listUser);
         listGroupView.setItems(listGroup);
+        msgSession.setExpanded(true);
+        msgSession.depthProperty().set(1);
+        Label label = new Label("User List:  Welcome Back " + ClientHolder.getClient().getFrom());
+        JFXRippler rippler = new JFXRippler(label);
+        infoBox.getChildren().set(0, rippler);
+
+        label2 = new Label("Group List: current group " + EnterGroupHdl.getCurrentRoom());
+        infoBox.getChildren().set(2, new JFXRippler(label2));
 
         listContextMenu = new ContextMenu();
         MenuItem downloadMenuItem = new MenuItem("Download");
         downloadMenuItem.setOnAction((event) -> {
             ChatMessage message = (ChatMessage) msgSession.getSelectionModel().getSelectedItem();
-            if(message.getChatType().equals(ConstantValue.CHAT_TYPE_FILE)) {
-               FileMessage fm =  message.getFileMessage();
-               //if user press download, then set upload to false
-               fm.setUpload(false);
-               SendHelper.send(ClientHolder.getClient().getSocket(),fm);
+            if (message.getChatType().equals(ConstantValue.CHAT_TYPE_FILE)) {
+                FileMessage fm = message.getFileMessage();
+                //if user press download, then set upload to false
+                fm.setUpload(false);
+                SendHelper.send(ClientHolder.getClient().getSocket(), fm);
 
 
                 Platform.runLater(() -> {
@@ -105,12 +119,14 @@ public class MainPageController implements ControlledStage, Initializable {
                         super.updateItem(item, empty);
                         Platform.runLater(() -> {
                             if (item != null) {
+
                                 VBox box = new VBox();
                                 HBox hBox = new HBox();
                                 TextFlow txtContent = new TextFlow(new Text(item.getContent()));
                                 Label labUser = new Label(item.getFrom() + " [" + item.getTimer() + "]");
                                 labUser.setStyle("-fx-background-color: #7bc5cd; -fx-text-fill: white");
                                 hBox.getChildren().addAll(labUser);
+
                                 if (item.getFrom().equals(thisUser)) {
                                     txtContent.setTextAlignment(TextAlignment.RIGHT);
                                     hBox.setAlignment(Pos.CENTER_RIGHT);
@@ -128,7 +144,7 @@ public class MainPageController implements ControlledStage, Initializable {
 
                 cell.emptyProperty().addListener(
                         (obs, wasEmpty, isNowEmpty) -> {
-                            if(isNowEmpty) {
+                            if (isNowEmpty) {
                                 cell.setContextMenu(null);
                             } else {
                                 cell.setContextMenu(listContextMenu);
@@ -162,7 +178,7 @@ public class MainPageController implements ControlledStage, Initializable {
         dialog.initOwner(mainBorderPane.getScene().getWindow());
 
         dialog.setTitle("Add New Group");
-        dialog.setHeaderText("Use this dialog to create a new group");
+        dialog.setHeaderText("Uswhe this dialog to create a new group");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../dialog/newgroup/newgroup.fxml"));
 
@@ -223,7 +239,7 @@ public class MainPageController implements ControlledStage, Initializable {
             lgm.setGroupName(EnterGroupHdl.getCurrentRoom());
             lgm.setUserName(ClientHolder.getClient().getFrom());
             EnterGroupHdl.setCurrentRoom(null);
-            SendHelper.send(ClientHolder.getClient().getSocket(),lgm);
+            SendHelper.send(ClientHolder.getClient().getSocket(), lgm);
         } else {
         }
     }
@@ -277,8 +293,6 @@ public class MainPageController implements ControlledStage, Initializable {
             });
         }
     }
-
-
 
 
 }

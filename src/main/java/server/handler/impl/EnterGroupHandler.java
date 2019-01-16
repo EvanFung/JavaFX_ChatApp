@@ -27,7 +27,7 @@ public class EnterGroupHandler implements SocketHandler {
                     rm.setMessage(I18N.INFO_GROUP_ENTER_FAILED).setKey(Key.ENTERGROUP);
                     SendHelper.send(client,rm);
                 } else {
-                    rm.setContent(egm).setKey(Key.ENTERGROUP).setSuccess(true).setMessage(I18N.INFO_GROUP_OK);
+                    rm.setContent(egm).setKey(Key.ENTERGROUP).setSuccess(true).setMessage(I18N.INFO_GROUP_ENTER_SUCCESS);
                     SendHelper.send(client,rm);
                 }
 //                ArrayList<SocketWrapper> list = SocketHolder.getRoom(egm.getGroupName());

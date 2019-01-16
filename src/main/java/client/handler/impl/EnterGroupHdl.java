@@ -1,11 +1,13 @@
 package client.handler.impl;
 
 import client.handler.Handler;
+import client.view.main.MainPageController;
 import com.alibaba.fastjson.JSON;
 import common.EnterGroupMessage;
 import common.ReturnMessage;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import sun.applet.Main;
 
 public class EnterGroupHdl implements Handler {
     public static String currentRoom;
@@ -22,7 +24,9 @@ public class EnterGroupHdl implements Handler {
                 } else {
                     EnterGroupMessage egm = JSON.parseObject(rm.getContent().toString(),EnterGroupMessage.class);
                     currentRoom = egm.getGroupName();
+
                     Platform.runLater(()-> {
+                        MainPageController.label2.setText("Group List: current group " + currentRoom);
                         showSignupWindow("INFORMATION",rm.getMessage());
                     });
 
