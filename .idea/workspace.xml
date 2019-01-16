@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="changes the file message timer date time format">
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/handler/impl/EnterGroupHdl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/handler/impl/EnterGroupHdl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/resources/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/main/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/main/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/view/main/mainpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/view/main/mainpage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/handler/impl/EnterGroupHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/handler/impl/EnterGroupHandler.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="chore: minor changes">
+      <change afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,10 +69,11 @@
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="4" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -90,8 +88,9 @@
           <entry key="class" value="1" />
           <entry key="css" value="2" />
           <entry key="fxml" value="57" />
-          <entry key="java" value="959" />
+          <entry key="java" value="960" />
           <entry key="jpeg" value="2" />
+          <entry key="md" value="2" />
           <entry key="png" value="5" />
           <entry key="xml" value="7" />
         </counts>
@@ -101,7 +100,8 @@
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="2" />
           <entry key="Image" value="7" />
-          <entry key="JAVA" value="959" />
+          <entry key="JAVA" value="960" />
+          <entry key="Markdown" value="2" />
           <entry key="UML" value="7" />
           <entry key="XML" value="64" />
         </counts>
@@ -112,7 +112,8 @@
           <entry key="dummy" value="11" />
           <entry key="fxml" value="791" />
           <entry key="java" value="33429" />
-          <entry key="txt" value="270" />
+          <entry key="md" value="773" />
+          <entry key="txt" value="327" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
@@ -120,7 +121,8 @@
         <counts>
           <entry key="CSS" value="357" />
           <entry key="JAVA" value="33429" />
-          <entry key="PLAIN_TEXT" value="281" />
+          <entry key="Markdown" value="773" />
+          <entry key="PLAIN_TEXT" value="338" />
           <entry key="XML" value="802" />
         </counts>
       </usages-collector>
@@ -136,37 +138,43 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/Client.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/client/ReceiveListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+            <state relative-caret-position="561">
+              <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/ReceiveListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="177">
+                <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/handler/impl/TipHdl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/callback/ChatRoomAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <entry file="file://$PROJECT_DIR$/LICENSE.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="472">
+                <caret line="692" column="4" selection-start-line="692" selection-start-column="4" selection-end-line="692" selection-end-column="4" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -266,8 +274,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/client/handler/impl/LoginHdl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/dto/ClientListUserDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/view/dialog/leavegroup/leavegroup.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/common/SendHelper.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -317,6 +323,8 @@
         <option value="$PROJECT_DIR$/src/main/java/client/view/main/mainpage.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/client/view/login/login.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/server/handler/impl/EnterGroupHandler.java" />
+        <option value="$PROJECT_DIR$/LICENSE.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -348,6 +356,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -355,29 +364,12 @@
               <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
               <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
-              <item name="clientFile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -390,7 +382,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544346646233" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547647750378" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -398,7 +390,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -520,6 +512,7 @@
       <workItem from="1544111338376" duration="1103000" />
       <workItem from="1544339961824" duration="2395000" />
       <workItem from="1545919499142" duration="43000" />
+      <workItem from="1547645467387" duration="2264000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1542390924223</created>
@@ -570,16 +563,24 @@
       <option name="project" value="LOCAL" />
       <updated>1542988148210</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="chore: minor changes">
+      <created>1547645538817</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547645538817</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197499000" />
+    <option name="totallyTimeSpent" value="199763000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18864469" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1904762" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -587,9 +588,10 @@
       <window_info id="Image Layers" order="5" />
       <window_info id="UI Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34502923" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34502923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -604,6 +606,8 @@
       <window_info anchor="bottom" id="Thumbnails" order="14" weight="0.3297609" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.32906976" />
+      <window_info anchor="right" id="Flutter Outline" />
+      <window_info anchor="right" id="Flutter Inspector" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -634,19 +638,14 @@
     <MESSAGE value="add alter box to prompt the user after file transmission success" />
     <MESSAGE value="encapsulate the download method" />
     <MESSAGE value="changes the file message timer date time format" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes the file message timer date time format" />
+    <MESSAGE value="chore: minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: minor changes" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/resources/images/icons8-facebook-50.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/resources/images/icons8-sent-64.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/resources/images/icons8-paper-plane-30.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -701,12 +700,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/view/main/mainpage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1064">
           <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/resources/styles.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -716,12 +715,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/view/login/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="110" selection-start-line="14" selection-start-column="110" selection-end-line="14" selection-end-column="110" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/clientFile/Evans' Group/2018-12-06_23:51:46-WhatsApp Image 2018-11-15 at 2.09.47 PM (1).jpeg">
       <provider selected="true" editor-type-id="images" />
@@ -880,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/handler/impl/GroupHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -973,8 +965,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/ReceiveListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state relative-caret-position="561">
+          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="472">
+            <caret line="692" column="4" selection-start-line="692" selection-start-column="4" selection-end-line="692" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="177">
+            <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1035,7 +1054,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
