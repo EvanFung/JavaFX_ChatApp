@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.main.MainPageController">
+
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Group">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showDialog" text="New group" />
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showEnterDialog" text="Enter group" />
+                    </items>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showLeaveDialog" text="Leave group" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                        <!--add dialog about -->
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <JFXListView fx:id="msgSession" stylesheets="@../../resources/styles.css" />
+    </center>
+    <right>
+        <VBox fx:id="infoBox">
+            <children>
+                <Label>Online:</Label>
+                <JFXListView fx:id="listUserView" prefHeight="192.5" prefWidth="200.0" stylesheets="@../../resources/styles.css" BorderPane.alignment="CENTER" />
+            </children>
+            <children>
+                <Label>Group:</Label>
+                <JFXListView fx:id="listGroupView" prefHeight="192.5" prefWidth="200.0" stylesheets="@../../resources/styles.css" BorderPane.alignment="CENTER" />
+            </children>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="17.0" prefWidth="72.0" text="Message:" />
+                <TextField fx:id="messageTextField" prefHeight="25.0" prefWidth="324.0" styleClass="jfx-text-field" />
+                <JFXButton fx:id="sendMessageBtn" mnemonicParsing="false" onAction="#sendMsg" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #4D83F7;" text="send" textFill="WHITE" />
+            </children>
+            <children>
+                <JFXButton fx:id="uploadBtn" onAction="#handleUpload" style="-fx-background-color: #4D83F7;" text="Open..." textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></JFXButton>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

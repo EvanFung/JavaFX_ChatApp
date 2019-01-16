@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:controller="client.view.dialog.entergroup.EnterGroupController"
+            xmlns:fx="http://javafx.com/fxml">
+    <headerText>
+        Enter a group
+    </headerText>
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Group name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="groupNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Group password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>

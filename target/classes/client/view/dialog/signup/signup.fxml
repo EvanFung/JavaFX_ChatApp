@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane fx:controller="client.view.dialog.signup.SignupController"
+            xmlns:fx="http://javafx.com/fxml">
+    <headerText>
+        Sign Up
+    </headerText>
+    <content>
+        <GridPane vgap="10" hgap="10">
+            <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </GridPane>
+    </content>
+</DialogPane>
