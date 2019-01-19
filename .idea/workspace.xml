@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="chore: add some documents">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="chore: minor changes for readme file">
+      <change afterPath="$PROJECT_DIR$/screenshots/chat1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/chat2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/login.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -90,7 +93,7 @@
           <entry key="java" value="960" />
           <entry key="jpeg" value="2" />
           <entry key="md" value="2" />
-          <entry key="png" value="5" />
+          <entry key="png" value="8" />
           <entry key="xml" value="7" />
         </counts>
       </usages-collector>
@@ -98,7 +101,7 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="CSS" value="2" />
-          <entry key="Image" value="7" />
+          <entry key="Image" value="10" />
           <entry key="JAVA" value="960" />
           <entry key="Markdown" value="2" />
           <entry key="UML" value="7" />
@@ -111,8 +114,8 @@
           <entry key="dummy" value="11" />
           <entry key="fxml" value="791" />
           <entry key="java" value="33429" />
-          <entry key="md" value="774" />
-          <entry key="txt" value="351" />
+          <entry key="md" value="946" />
+          <entry key="txt" value="382" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
@@ -120,8 +123,8 @@
         <counts>
           <entry key="CSS" value="357" />
           <entry key="JAVA" value="33429" />
-          <entry key="Markdown" value="774" />
-          <entry key="PLAIN_TEXT" value="362" />
+          <entry key="Markdown" value="946" />
+          <entry key="PLAIN_TEXT" value="393" />
           <entry key="XML" value="802" />
         </counts>
       </usages-collector>
@@ -158,8 +161,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="2" selection-start-column="2" selection-end-column="2" />
+              <first_editor relative-caret-position="453">
+                <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
               </first_editor>
               <second_editor />
             </state>
@@ -174,33 +177,6 @@
                 <caret line="692" column="4" selection-start-line="692" selection-start-column="4" selection-end-line="692" selection-end-column="4" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientHolder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/handler/impl/EnterGroupHdl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/handler/impl/GroupHdl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -342,8 +318,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="x" value="34" />
+    <option name="y" value="31" />
+    <option name="width" value="1178" />
     <option name="height" value="947" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -363,6 +340,11 @@
               <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
               <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="comp_3015" type="b2602c69:ProjectViewProjectNode" />
+              <item name="comp_3015" type="462c0819:PsiDirectoryNode" />
+              <item name="screenshots" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -381,7 +363,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547647983049" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547893789482" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -393,11 +375,12 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/client/view/dialog/signup" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/client/resources/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshots" />
+      <recent name="$PROJECT_DIR$/src/main/java/client/view/dialog/signup" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -511,7 +494,7 @@
       <workItem from="1544111338376" duration="1103000" />
       <workItem from="1544339961824" duration="2395000" />
       <workItem from="1545919499142" duration="43000" />
-      <workItem from="1547645467387" duration="2470000" />
+      <workItem from="1547645467387" duration="4781000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1542390924223</created>
@@ -583,17 +566,24 @@
       <option name="project" value="LOCAL" />
       <updated>1547647838747</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="chore: minor changes for readme file">
+      <created>1547648003116</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547648003116</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199969000" />
+    <option name="totallyTimeSpent" value="202280000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="947" extended-state="0" />
+    <frame x="34" y="31" width="1178" height="947" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1904762" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2746479" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -653,30 +643,14 @@
     <MESSAGE value="changes the file message timer date time format" />
     <MESSAGE value="chore: minor changes" />
     <MESSAGE value="chore: add some documents" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add some documents" />
+    <MESSAGE value="chore: minor changes for readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: minor changes for readme file" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/resources/images/icons8-paper-plane-30.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/handler/impl/LoginHdl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/callback/Callback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/SocketWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -1001,11 +975,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/chat2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/chat1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screenshots/login.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <first_editor relative-caret-position="453">
+            <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
           </first_editor>
           <second_editor />
         </state>

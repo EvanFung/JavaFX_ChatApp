@@ -52,6 +52,15 @@ run the server side first then run the client side
 
 ## Caution
 If you are a student in HKBU, please comply with the academic integrity codes, DON'T copy this project.
+## Screenshot
+I don't have much time for the ui because the time was too limited.
+![alt text](screenshots/login.png "LOGIN")
+
+![alt text](screenshots/chat1.png "CHAT1")
+
+![alt text](screenshots/chat2.png "CHAT2")
+
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](LICENSE.md) file for details
